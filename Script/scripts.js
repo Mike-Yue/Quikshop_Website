@@ -18,23 +18,3 @@ function openTab(event, id) {
     document.getElementById(id).style.display = "block";
     event.currentTarget.className += " active";
 }
-
-function readCSV(){
-    /*var i = 0;
-    var data = [];
-    var element = document.getElementById("blockchain");
-
-    data = $.csv.toArray('test.csv');
-
-    for(i = 0; i < data.length; i++){
-        var para = document.createElement("p");
-        var text = document.createTextNode(data[i]);
-        para.appendChild(text);
-        element.appendChild(para);
-    } */
-    var element = document.getElementById("blockchain");
-    var para = document.createElement("p");
-    var text = document.createTextNode("Test!");
-    para.appendChild(text);
-    element.appendChild(para);
-}
