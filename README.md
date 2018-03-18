@@ -7,3 +7,5 @@ Ignore index.html. That is legacy code.
 The html code is dynamically rendered in the Views folder, in the file called pugprac
 
 The CSS and JS scripts are linked to the Pug file in the scripts folder. Not sure why but it is what it is
+
+Uses Ngrok to forward requests from my home router to the port

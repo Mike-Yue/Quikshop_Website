@@ -4,7 +4,7 @@ html
 		title QuikShop
 		link(rel='stylesheet', href='style.css')
 		script(src='scripts.js')
-	body
+	body(onload = "openTab(event, 'blockchain')")
 		div(class='tab')
 			button(class='tablinks' onclick="openTab(event, 'welcome')") Welcome
 			button(class='tablinks' onclick="openTab(event, 'blockchain')") BlockChain
