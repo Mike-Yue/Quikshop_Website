@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>QuikShop BlockChain</title>
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src = "jquery-csv.js"></script>
+	<script src = "scripts.js"></script>
+	<link rel = "stylesheet" href = "style.css">
+</head>
+
+<body onload = "openTab(event, 'welcome')">
+	<div class = "tab">
+		<button class="tablinks" onclick="openTab(event, 'welcome')">Welcome</button>
+  		<button class="tablinks" onclick="openTab(event, 'blockchain')">BlockChain</button>
+  		<button class="tablinks" onclick="openTab(event, 'contact')">Contact Us</button>
+	</div>
+
+	<div id = "welcome" class = "tabcontent">
+		<h2>Welcome to QuikShop!</h2>
+	</div>
+
+	<div id = "blockchain" class = "tabcontent">
+		<h2> Live View of BlockChain </h2>
+		<button id = "update" type = "button" onclick = "readFromServer()">View BlockChain</button>
+	</div>
+
+	<div id = "contact" class = "tabcontent">
+		<h2> Contact Information </h2>
+	</div>
+
+</body>
+</html>

@@ -1,48 +1,80 @@
 
-	body{
-        background-color: RoyalBlue;
+    body{
+        background-color: #5D728C;
     }
 
     h2{
         color: white;
+        text-align: center;
+        font-family: Helvetica;
+    }
+
+    li{
+        text-align: center;
+    }
+
+    #datatable{
+        overflow-x: auto; 
     }
 
     .tab {
-    	overflow: hidden;
-    	border: none;
-    	background-color: #f1f1f1;
-    	
-	}
+        overflow: hidden;
+        border: none;
+        background-color: #f1f1f1;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0;
+    }
 
-	.tab button {
-    	border-bottom-style: solid;
-    	border-bottom-width: 3px;
-    	border-top-style: none;
-    	border-right-style: none;
-    	border-left-style: none;
-    	border-color: red;
-    	background-color: #000000;
-    	color: #ffffff;
-    	float: left;
-    	outline: none;
-    	cursor: pointer;
-    	padding: 14px 16px;
-    	transition: 0.3s;
-    	width: 33.3333333333333333333333333333333333333333333333333333333333333333%;
+    .tab button {
+        border-style: none;
+        background-color: #000000;
+        color: #ffffff;
+        float: left;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        width: 33.3333333333333333333333333333333333333333333333333333333333333333%;
+        font-family: Helvetica;
+        font-size: 16px;
 
 
-	}
+    }
 
-	.tab button:hover {
-    	background-color: #008b00;
-	}
+    .tab button:hover {
+        background-color: #EDF5FF;
+        color: black;
+    }
 
-	.tab button.active {
- 		border-bottom-color: #00ee00;
-	}
+    .tab button.active {
+        background-color: #EDF5FF;
+        color: black;
+    }
 
-	.tabcontent {
-    	display: none;
-    	padding: 6px 12px;
-    	border-top: none;
-	}
+    .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border-top: none;
+    }
+
+
+
+    th, td{
+        border-style: solid;
+        border-color: black;
+        width: 200px;
+        background-color: #98A3B2;
+        color: white;
+        font-family: Helvetica;
+    }
+
+    tr.data{
+        height: 300px;
+        white-space: pre;
+        vertical-align: text-top;
+    }
