@@ -70,6 +70,11 @@
         background-color: #98A3B2;
         color: white;
         font-family: Helvetica;
+        padding-left: 5px;
+    }
+
+    tr.nonce{
+        text-align: center;
     }
 
     tr.data{
@@ -77,3 +82,4 @@
         white-space: pre;
         vertical-align: text-top;
     }
+

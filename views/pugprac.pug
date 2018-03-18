@@ -20,7 +20,7 @@ html
 					tr
 						for block in blockNum
 							th='Block ' + block
-					tr
+					tr(class='nonce')
 						for nonceVal in nonce
 							td='Nonce: ' + nonceVal
 					tr(class='data')
