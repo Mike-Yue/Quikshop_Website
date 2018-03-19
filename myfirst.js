@@ -56,7 +56,7 @@ app.get('/search', function(req, res){
 	var dynamicInput = '%'.concat(input.concat('%'));
 	con.connect(function(err){
 
-	con.query("SELECT * FROM blockchain WHERE data LIKE ?", [dynamicInput], function(err, result, fields){
+	con.query("SELECT * FROM blockchain WHERE number LIKE ? or nonce LIKE ? or data LIKE ? or prev_hash LIKE ? or curr_hash LIKE ?", [dynamicInput, dynamicInput, dynamicInput, dynamicInput, dynamicInput], function(err, result, fields){
 		if(err) throw err;
 
 		blockNum.length = 0;
