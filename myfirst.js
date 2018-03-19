@@ -72,12 +72,36 @@ app.get('/search', function(req, res){
 			prevHash[i] = result[i].prev_hash;
 			currHash[i] = result[i].curr_hash;
 		}
-		res.render("pugprac", {
+		res.render("search_or_reset", {
     		blockNum, nonce, data, prevHash, currHash
     		}); 
 		});
 	});
 
+});
+
+app.get('/reset', function (req, res) {
+	con.connect(function(err){
+	blockNum.length = 0;
+	nonce.length = 0;
+	data.length = 0;
+	prevHash.length = 0;
+	currHash.length = 0;
+
+	con.query("SELECT * FROM blockchain", function(err, result, fields){
+		if(err) throw err;
+		for(i = 0; i < result.length; i++){
+			blockNum[i] = result[i].number;
+			nonce[i] = result[i].nonce;
+			data[i] = result[i].data;
+			prevHash[i] = result[i].prev_hash;
+			currHash[i] = result[i].curr_hash;
+		}
+    	res.render("search_or_reset", {
+    		blockNum, nonce, data, prevHash, currHash
+    	});
+		});
+	});
 });
 
 

@@ -5,11 +5,11 @@ html(lang='en')
 		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
 		link(rel='stylesheet', href='style.css')
 		script(src='scripts.js')
-	body(onload = "openDefault()")
+	body(onload = "openBlock()")
 		div(class='tab')
 			img(src='quikshop_logo.png')
 			button(id='defaultButton' class='tablinks' onclick="openTab(event, 'welcome')") Welcome
-			button(class='tablinks' onclick="openTab(event, 'blockchain')") BlockChain
+			button(id='block' class='tablinks' onclick="openTab(event, 'blockchain')") BlockChain
 			button(class='tablinks' onclick="openTab(event, 'contact')") Contact us
 		div(id='welcome' class='tabcontent')
 			h2 Welcome to Quikshop!
