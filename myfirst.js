@@ -13,7 +13,7 @@ var currHash = [];
 app.use(express.static('Script'));
 app.set('view engine', 'pug');
 app.set("views", path.join(__dirname, "views"));
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 var con = mysql.createConnection({
 	host: "localhost",
@@ -23,9 +23,16 @@ var con = mysql.createConnection({
 });
 
 
-/*app.get('/', function (req, res) {
-   res.sendFile(path.join(__dirname + '/index.html'));
-}); */
+//To add onto this implementation, I will need to add input sanitization for unique block numbers, set lengths on hashes etc etc
+app.post('/post', function(req, res){
+	var insertData = [
+		[req.body.number, req.body.nonce, req.body.data, req.body.prev_hash, req.body.curr_hash]
+	];
+	con.query("INSERT INTO blockchain VALUES ?", [insertData], function(err, result){
+		if(err) throw err;
+		console.log("Number of records affected: " + result.affectedRows);
+	});
+});
 
 app.get('/', function (req, res) {
 	con.connect(function(err){
@@ -52,8 +59,14 @@ app.get('/', function (req, res) {
 });
 
 app.get('/search', function(req, res){
+	var dynamicInput;
 	var input = req.query.name;
-	var dynamicInput = '%'.concat(input.concat('%'));
+	if(input == null){
+		dynamicInput = '%'.concat('%');
+	}
+	else{
+	 	dynamicInput = '%'.concat(input.concat('%'));
+	}
 	con.connect(function(err){
 
 	con.query("SELECT * FROM blockchain WHERE number LIKE ? or nonce LIKE ? or data LIKE ? or prev_hash LIKE ? or curr_hash LIKE ?", [dynamicInput, dynamicInput, dynamicInput, dynamicInput, dynamicInput], function(err, result, fields){
