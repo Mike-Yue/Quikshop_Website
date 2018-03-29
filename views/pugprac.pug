@@ -6,11 +6,12 @@ html(lang='en')
 		link(rel='stylesheet', href='style.css')
 		script(src='scripts.js')
 	body(onload = "openDefault()")
-		div(class='tab')
-			img(src='quikshop_logo.png' style='max-width:100%; height: auto;')
-			button(id='defaultButton' class='tablinks' onclick="openTab(event, 'welcome')" style='font-size: 1.8vw') Welcome
-			button(class='tablinks' onclick="openTab(event, 'blockchain')" style='font-size: 1.8vw') BlockChain
-			button(class='tablinks' onclick="openTab(event, 'contact')" style='font-size: 1.8vw') Contact us
+		div(class='container')
+			div(class='tab')
+				img(src='quikshop_logo.png' style='max-width:100%; height: auto;')
+				button(id='defaultButton' class='tablinks' onclick="openTab(event, 'welcome')" style='font-size: 1.8vw') Welcome
+				button(class='tablinks' onclick="openTab(event, 'blockchain')" style='font-size: 1.8vw') BlockChain
+				button(class='tablinks' onclick="openTab(event, 'contact')" style='font-size: 1.8vw') Contact us
 		div(id='welcome' class='tabcontent')
 			h2(style='font-size:3vw') Welcome to Quickshop!
 			p(class='introPara' style='font-size: 1.6vw') This is Group 11's project QuickShop for CPEN391 Module 2. It includes hashing as well as blockchain mining on the DE1-SoC, where the data is sent over to a database in SQL. A server running NodeJs communicates with the database to display the most up to date blockchain. HTML pages are generated dynamically using Pug View.
