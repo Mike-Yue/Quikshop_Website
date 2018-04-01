@@ -34,6 +34,10 @@ app.post('/post', function(req, res){
 	});
 });
 
+app.get('/test', function(req, res){
+	res.render("bootstrap_html");
+});
+
 app.get('/', function (req, res) {
 	con.connect(function(err){
 	blockNum.length = 0;
