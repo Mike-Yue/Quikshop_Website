@@ -22,6 +22,13 @@ var con = mysql.createConnection({
 	database: "blocks"
 });
 
+app.get('/', function(req, res){
+	res.render('welcome');
+});
+
+app.get('/contactus', function(req, res){
+	res.render('contact');
+});
 
 //To add onto this implementation, I will need to add input sanitization for unique block numbers, set lengths on hashes etc etc
 app.post('/post', function(req, res){
@@ -38,7 +45,7 @@ app.get('/test', function(req, res){
 	res.render("bootstrap_html");
 });
 
-app.get('/', function (req, res) {
+app.get('/blockchain', function (req, res) {
 	con.connect(function(err){
 	blockNum.length = 0;
 	nonce.length = 0;
@@ -55,14 +62,14 @@ app.get('/', function (req, res) {
 			prevHash[i] = result[i].prev_hash;
 			currHash[i] = result[i].curr_hash;
 		}
-    	res.render("pugprac", {
+    	res.render("blockchain", {
     		blockNum, nonce, data, prevHash, currHash
     	});
 		});
 	});
 });
 
-app.get('/search', function(req, res){
+app.get('/blockchain/search', function(req, res){
 	var dynamicInput;
 	var input = req.query.name;
 	if(input == null){

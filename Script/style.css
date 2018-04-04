@@ -3,134 +3,100 @@ html{
 }
 
 body{
-        background-color: #afeeee;
-        margin: 0px;
-        height: 100%;
-    }
+    margin: 0px;
+    height: 100%;
+    background: #dde2e3;
+}
+
 
 h2{
-    color: #7f1917;
-    text-align: center;
-    display: block;
-    font-family: Helvetica;
-    padding-bottom: 10px;
-    padding-top: 10px;
+    font-size: 3.5vw;
 }
 
-h2.specialh2{
-    color: #76323f;
-    text-align: left;
-    display: inline-block;
-    font-family: Helvetica;
-    padding-bottom: 1%;
-    padding-top: 1%;
+h4{
+    font-size: 2vw;
+    margin-left: 10px;
 }
 
-li{
-    text-align: center;
+.col-xs-6 img{
+    height: auto;
+    width: 95%;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
-a{
-    display: block;
-    font-size: 16px;
-}
 
-.container-fluid{
-    padding: 0px;
-    height: 100%;
-}
-
-.tab {
-    overflow: auto;
-    display: inline-block;
-    background-color: #F9FAF9;
-    width: 100%;
-    float: top;
-    border-bottom: solid;
-    border-color: #565656
-    border-width: thin;
-    padding-left: 0;
+.col-xs-4{
     padding-right: 0;
-    padding-top: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    margin: 0;
-
+    padding-left: 0;
 }
 
-.tab button {
-    border: none;
-    background-color: inherit;
-    color: #565656;
-    outline: none;
-    cursor: pointer;
-    margin-top: 1%;   
-    padding-bottom: 1%;
-    transition: 0.2s;
-    width: 33.333333333333333%;
-    font-family: Helvetica;
-}
-
-.tab button:hover {
+.col-xs-4 img{
+    height: 100%;
+    width: 100%;
+    background-color: #9aacb8;
     border-bottom: solid;
     border-width: medium;
-    border-color: #03707d; 
+
 }
 
-.tab button.active {
+.col-xs-2{
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.col-xs-2 p{
+    width: 100%;
+    height: 100%;
+    background-color: #9aacb8;  
     border-bottom: solid;
+    border-color: #565656;
     border-width: medium;
-    border-color: #03707d;
+
 }
 
-.tabcontent {
-    display: none;
-    padding: 6px 12px;
-    border: none;
+.col-xs-6{
+    padding-right: 0;
+    padding-left: 0;
 }
 
 .banner{
-    text-align: center;
-}
-
-.banner img{
-    image-rendering: -webkit-optimize-contrast;
+    display: inline-block;
+    overflow: auto;
+    background-color: #9aacb8;
     height: 100%;
-    max-width: 50%;
+    width: 33.3333333333333%;
+    float: top;
+    border-bottom: solid;
+    border-color: #565656;
+    border-width: medium;
 }
 
-.search-container{
-    float: right;
-    display: block;
-    width: 40%;
-    padding-top: 4%;
-}
-
-.search-container input[type='text']{
-    width: 70%;
-    height: inherit;
-}
-
-.search-container button{
-    width: 30%;
-    height: inherit;
-    text-align: center;
-}
-
-tr.data{
-    height: 123px;
-    vertical-align: text-top;
-}
-
-
-table{
-    color: black;
-    background-color: #e5fafa;
-    table-layout: auto;
+.banner button{
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    border: none;
     font-size: 1.5vw;
-    margin-left: 0px;
-    margin-right: 0px;
 }
 
+.banner button:hover {
+    color: #4169e1;
+}
 
+#active_button{
+    color: #4169e1;
+}
+
+.introPara{
+    font-size: 1.2vw;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+a{
+    font-size: 1.8vw;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}

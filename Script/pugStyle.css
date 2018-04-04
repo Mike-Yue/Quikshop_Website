@@ -1,0 +1,115 @@
+html{
+    height: 100%;
+}
+
+body{
+    margin: 0px;
+    height: 100%;
+    background: #dde2e3;
+}
+
+img{
+    height: 100%;
+    width: 100%;
+    background-color: #9aacb8;
+    border-bottom: solid;
+    border-width: medium;
+}
+
+h2{
+	font-size: 3.5vw;
+	margin-top: 10px;
+	margin-bottom: 2%;
+	text-align: center;
+	max-width: 100%;
+}
+
+.col-xs-2{
+	padding-right: 0;
+	padding-left: 0;
+}
+
+.col-xs-2 p{
+	background-color: #9aacb8;
+	height: 100%;
+	width: 100%;
+    border-bottom: solid;
+    border-color: #565656;
+	border-width: medium;
+
+}
+
+.col-xs-4{
+	padding-right: 0;
+	padding-left: 0;
+}
+
+.col-xs-6{
+	padding-right: 0;
+	padding-left: 0;
+}
+
+
+.banner{
+	display: inline-block;
+	overflow: auto;
+    background-color: #9aacb8;
+    height: 100%;
+    width: 33.3333333333333%;
+    float: top;
+    border-bottom: solid;
+    border-color: #565656;
+    border-width: medium;
+}
+
+.banner button{
+	width: 100%;
+	height: 100%;
+	background-color: inherit;
+	border: none;
+	font-size: 1.5vw;
+}
+
+.banner button:hover {
+	color: #154fff;
+}
+
+#active_button{
+	color: #154fff;
+}
+
+.form-control{
+	max-width: 50%;
+	height: auto;
+	font-size: 1.2vw;
+	margin: 0 auto;
+}
+
+.btn-primary{
+	margin: 0 auto;
+	width: 50%;
+	height: auto;
+	background-color: inherit;
+	color: black;
+	font-size: 1.2vw;
+	display: block;
+}
+
+tr.data{
+    height: 123px;
+    vertical-align: text-top;
+}
+
+tr{
+	font-size: 1.2vw;
+	max-width: 100%;
+}
+
+table{
+    color: black;
+    background-color: #e5fafa;
+    table-layout: auto;
+    font-size: 1.5vw;
+    margin-left: 0px;
+    margin-right: 0px;
+}

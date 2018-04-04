@@ -26,3 +26,7 @@ function openDefault(){
 function openBlock(){
     document.getElementById('block').click();
 }
+
+function flip(){
+    screen.orientation.lock('landscape');
+}
