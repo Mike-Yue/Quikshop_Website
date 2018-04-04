@@ -7,7 +7,7 @@ html(lang='en')
 		script(src='scripts.js')
 	body(onload = "openDefault()")
 		div(class='container-fluid')
-			div(class='row no-gutters' style='height: 22%; display: block;')
+			div(class='row no-gutters' id='banner-row')
 				div(class='col-xs-4')
 					img(src='logo.png')
 				div(class='col-xs-2')
@@ -20,10 +20,10 @@ html(lang='en')
 						button(class='banner_button' type='submit') BlockChain
 					form(class='banner' method='get' action='/contactus')
 						button(class='banner_button' type='submit') Contact us
-			div(class='row' style='height: 10%; display: block;')
+			div(class='row no-gutters' id='header-row')
 				div(class='col-xs-12')
-					h2(style='font-size:3.5vw') Welcome to Quickshop!
-			div(class='row' style='height: 68%; display: block;')
+					h2 Welcome to Quickshop!
+			div(class='row' id='content-row')
 				div(class='col-xs-6')
 					p(class='introPara') This is Group 11's project QuickShop for CPEN391 Module 2. It involves multiple components integrated together to form a cohesive whole.
 					h4 Hardware

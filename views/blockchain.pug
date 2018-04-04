@@ -7,7 +7,7 @@ html(lang='en')
 		script(src='/scripts.js')
 	body
 		div(class='container-fluid')
-			div(class='row no-gutters' style='height: 22%; display: block;')
+			div(class='row no-gutters' id='banner-row')
 				div(class='col-xs-4')
 					img(src='/logo.png')
 				div(class='col-xs-2')
@@ -19,7 +19,7 @@ html(lang='en')
 						button(class='banner_button' id='active_button' type='submit') BlockChain
 					form(class='banner' method='get' action='/contactus')
 						button(class='banner_button' type='submit') Contact us
-			div(class='row no-gutters' style='height: 10%; display: block;')
+			div(class='row no-gutters' id='header-row')
 				div(class='col-xs-12')
 					h2 Live View of BlockChain
 				div(class='col-xs-12')
@@ -27,7 +27,7 @@ html(lang='en')
 						div(class='form-group')    
 							input(class='form-control' type='text' name='name' placeholder='Search...')
 							button(class='btn-primary') Submit
-			div(class='row' style='height: 68%; display: block;')
+			div(class='row' id='content-row')
 				div(class='col-xs-12')
 					div(class='table-responsive')
 								if(blockNum.length)

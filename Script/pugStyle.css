@@ -14,6 +14,7 @@ img{
     background-color: #9aacb8;
     border-bottom: solid;
     border-width: medium;
+    border-color: #565656;
 }
 
 h2{
@@ -22,6 +23,21 @@ h2{
 	margin-bottom: 2%;
 	text-align: center;
 	max-width: 100%;
+}
+
+#banner-row{
+    height: 22%;
+    display: block;
+}
+
+#header-row{
+    height: 10%;
+    display: block;
+}
+
+#content-row{
+    height: 68%;
+    display: block;
 }
 
 .col-xs-2{
@@ -101,8 +117,7 @@ tr.data{
 }
 
 tr{
-	font-size: 1.2vw;
-	max-width: 100%;
+	font-size: 1vw;
 }
 
 table{
@@ -112,4 +127,39 @@ table{
     font-size: 1.5vw;
     margin-left: 0px;
     margin-right: 0px;
+}
+
+@media only screen and (orientation: portrait){
+    #banner-row{
+        height: 11%;
+    }
+
+    #header-row{
+        height: 5%;
+    }
+
+    #content-row{
+        height: 84%;
+    }
+
+    .banner button{
+        font-size: 2.2vw;
+    }
+
+    .introPara{
+        margin-left: 4px;
+        margin-right: 4px;
+    }
+
+    tr{
+		font-size: 2vw;
+	}
+
+	.form-control{
+		font-size: 2vw;
+	}
+
+	.btn-primary{
+		font-size: 2vw;
+	}
 }

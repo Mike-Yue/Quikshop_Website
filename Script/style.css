@@ -7,15 +7,30 @@ body{
     height: 100%;
     background: #dde2e3;
 }
-
-
 h2{
     font-size: 3.5vw;
+    margin-left: 10px;
+    padding-left: 0px;
 }
 
 h4{
     font-size: 2vw;
     margin-left: 10px;
+}
+
+#banner-row{
+    height: 22%;
+    display: block;
+}
+
+#header-row{
+    height: 10%;
+    display: block;
+}
+
+#content-row{
+    height: 68%;
+    display: block;
 }
 
 .col-xs-6 img{
@@ -37,9 +52,14 @@ h4{
     background-color: #9aacb8;
     border-bottom: solid;
     border-width: medium;
+    border-color: #565656;
 
 }
 
+.col-xs-12{
+    padding-right: 0;
+    padding-left: 0;
+}
 .col-xs-2{
     padding-right: 0;
     padding-left: 0;
@@ -91,12 +111,44 @@ h4{
 .introPara{
     font-size: 1.2vw;
     margin-left: 10px;
-    margin-right: 10px;
 }
 
 a{
     font-size: 1.8vw;
     margin-left: 10px;
-    margin-right: 10px;
+}
+
+@media only screen and (orientation: portrait){
+    #banner-row{
+        height: 11%;
+    }
+
+    #header-row{
+        height: 5%;
+    }
+
+    #content-row{
+        height: 84%;
+    }
+
+    .banner button{
+        font-size: 2.2vw;
+    }
+
+    .introPara{
+        margin-left: 10px;
+        margin-right: 4px;
+        font-size: 2vw;
+    }
+
+
+    .col-xs-6 img{
+        margin-left: 5px;
+        margin-right: 5px;
+        width: 90%;
+    }
+    h4{
+        margin-left: 4px;
+    }
 
 }
