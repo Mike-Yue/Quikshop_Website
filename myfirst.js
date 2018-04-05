@@ -4,7 +4,7 @@ var path = require("path");
 var mysql = require("mysql");
 var bodyParser = require('body-parser');
 var request = require('request');
-var url = 'http://saif.ms:3000/blocks'
+var url = 'http://store.saif.ms/blocks'
 var i;
 var blockNum = [];
 var nonce = [];
@@ -71,15 +71,16 @@ app.get('/blockchain', function (req, res) {
 	    		blockNum[i] = body[i].block_num;
 				nonce[i] = body[i].nonce;
 				data_name[i] = body[i].data.name;
-				data_date[i] = body[i].data.date;
-				data_purchase[i] = '';
+				data_date[i] = new Date(body[i].data.date);
+				data_purchase[i] = 'Bought: ';
 				for(k = 0; k < body[i].data.products.length; k++){
-					data_purchase[i] = data_purchase[i].concat('Product: ').concat(body[i].data.products[k].name).concat(' Quantity: ').concat(body[i].data.products[k].quantity).concat(' Price: $').concat(body[i].data.products[k].price).concat('\n');
+					data_purchase[i] = data_purchase[i].concat(body[i].data.products[k].quantity).concat(' ').concat(body[i].data.products[k].name).concat('(s) for $').concat(body[i].data.products[k].price).concat(', ');
 				}
+				data_purchase[i] = data_purchase[i].substring(0, data_purchase[i].length - 2);
 				prevHash[i] = body[i].prev_hash;
 				currHash[i] = body[i].curr_hash;
 	    	}
-	    	console.log(data_purchase[0]);
+	    	console.log(nonce[0]);
     		res.render("blockchain", {
     		blockNum, nonce, data_name, data_date, data_purchase, prevHash, currHash
     	});       
