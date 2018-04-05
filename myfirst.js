@@ -3,10 +3,14 @@ var app = express();
 var path = require("path");
 var mysql = require("mysql");
 var bodyParser = require('body-parser');
+var request = require('request');
+var url = 'http://saif.ms:3000/blocks'
 var i;
 var blockNum = [];
 var nonce = [];
-var data = [];
+var data_name = [];
+var data_date = [];
+var data_purchase = [];
 var prevHash = [];
 var currHash = [];
 
@@ -14,6 +18,7 @@ app.use(express.static('Script'));
 app.set('view engine', 'pug');
 app.set("views", path.join(__dirname, "views"));
 app.use(bodyParser.json());
+
 
 var con = mysql.createConnection({
 	host: "localhost",
@@ -46,88 +51,42 @@ app.get('/test', function(req, res){
 });
 
 app.get('/blockchain', function (req, res) {
-	con.connect(function(err){
 	blockNum.length = 0;
 	nonce.length = 0;
-	data.length = 0;
+	data_name.length = 0;
+	data_date.length = 0;
+	data_purchase.length = 0;
 	prevHash.length = 0;
 	currHash.length = 0;
 
-	con.query("SELECT * FROM blockchain", function(err, result, fields){
-		if(err) throw err;
-		for(i = 0; i < result.length; i++){
-			blockNum[i] = result[i].number;
-			nonce[i] = result[i].nonce;
-			data[i] = result[i].data;
-			prevHash[i] = result[i].prev_hash;
-			currHash[i] = result[i].curr_hash;
-		}
-    	res.render("blockchain", {
-    		blockNum, nonce, data, prevHash, currHash
-    	});
-		});
-	});
-});
+	request({
+	    url: url,
+	    json: true
+	}, function (error, response, body) {
 
-app.get('/blockchain/search', function(req, res){
-	var dynamicInput;
-	var input = req.query.name;
-	if(input == null){
-		dynamicInput = '%'.concat('%');
-	}
-	else{
-	 	dynamicInput = '%'.concat(input.concat('%'));
-	}
-	con.connect(function(err){
-
-	con.query("SELECT * FROM blockchain WHERE number LIKE ? or nonce LIKE ? or data LIKE ? or prev_hash LIKE ? or curr_hash LIKE ?", [dynamicInput, dynamicInput, dynamicInput, dynamicInput, dynamicInput], function(err, result, fields){
-		if(err) throw err;
-
-		blockNum.length = 0;
-		nonce.length = 0;
-		data.length = 0;
-		prevHash.length = 0;
-		currHash.length = 0;
-
-		for(i = 0; i < result.length; i++){
-			blockNum[i] = result[i].number;
-			nonce[i] = result[i].nonce;
-			data[i] = result[i].data;
-			prevHash[i] = result[i].prev_hash;
-			currHash[i] = result[i].curr_hash;
-		}
-		res.render("search_or_reset", {
-    		blockNum, nonce, data, prevHash, currHash
-    		}); 
-		});
-	});
+	    if (!error && response.statusCode === 200) {
+	    	var i;
+	    	var k;
+	    	for(i = 0; i < body.length; i++){
+	    		blockNum[i] = body[i].block_num;
+				nonce[i] = body[i].nonce;
+				data_name[i] = body[i].data.name;
+				data_date[i] = body[i].data.date;
+				data_purchase[i] = '';
+				for(k = 0; k < body[i].data.products.length; k++){
+					data_purchase[i] = data_purchase[i].concat('Product: ').concat(body[i].data.products[k].name).concat(' Quantity: ').concat(body[i].data.products[k].quantity).concat(' Price: $').concat(body[i].data.products[k].price).concat('\n');
+				}
+				prevHash[i] = body[i].prev_hash;
+				currHash[i] = body[i].curr_hash;
+	    	}
+	    	console.log(data_purchase[0]);
+    		res.render("blockchain", {
+    		blockNum, nonce, data_name, data_date, data_purchase, prevHash, currHash
+    	});       
+	    }
+	})
 
 });
-
-app.get('/reset', function (req, res) {
-	con.connect(function(err){
-	blockNum.length = 0;
-	nonce.length = 0;
-	data.length = 0;
-	prevHash.length = 0;
-	currHash.length = 0;
-
-	con.query("SELECT * FROM blockchain", function(err, result, fields){
-		if(err) throw err;
-		for(i = 0; i < result.length; i++){
-			blockNum[i] = result[i].number;
-			nonce[i] = result[i].nonce;
-			data[i] = result[i].data;
-			prevHash[i] = result[i].prev_hash;
-			currHash[i] = result[i].curr_hash;
-		}
-    	res.render("search_or_reset", {
-    		blockNum, nonce, data, prevHash, currHash
-    	});
-		});
-	});
-});
-
 
 app.listen(8080);
 

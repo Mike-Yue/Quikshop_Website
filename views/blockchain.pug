@@ -1,7 +1,7 @@
 html(lang='en')
 	head
 		meta(charset='utf-8' name='viewport' content='width=device-width, initial-scale=1.0')
-		title QuikShop
+		title QuickShop
 		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
 		link(rel='stylesheet', href='/pugStyle.css')
 		script(src='/scripts.js')
@@ -22,16 +22,17 @@ html(lang='en')
 			div(class='row no-gutters' id='header-row')
 				div(class='col-xs-12')
 					h2 Live View of BlockChain
-				div(class='col-xs-12')
-					form(action='/blockchain/search' method='get')
-						div(class='form-group')    
-							input(class='form-control' type='text' name='name' placeholder='Search...')
-							button(class='btn-primary') Submit
+				div(class='col-xs-4')
+					input(type='text' id='searchNames' onkeyup='updateTableNames()' placeholder='Search by Name...')
+				div(class='col-xs-4')
+					input(type='text' id='searchDates' onkeyup='updateTableDates()' placeholder='Search by Date...')
+				div(class='col-xs-4')
+					input(type='text' id='searchProducts' onkeyup='updateTableProducts()' placeholder='Search by Items Bought...')
 			div(class='row' id='content-row')
 				div(class='col-xs-12')
 					div(class='table-responsive')
 								if(blockNum.length)
-									table(id='blockchain table' class='table table-bordered')
+									table(id='blockchain_table' class='table table-bordered')
 										thead
 											tr
 												th='Block'
@@ -43,17 +44,25 @@ html(lang='en')
 												for nonceVal in nonce
 													td= nonceVal
 											tr(class='data')
-												th='Data'
-												for dataVal in data
-													td= dataVal
-											tr(class='hash')
+												th='Purchased By'
+												for name in data_name
+													td= name
+											tr(class='data')
+												th='Date of Purchase'
+												for date in data_date
+													td=date
+											tr(class='data')
+												th='Products'
+												for product in data_purchase
+													td=product
+											tr
 												th='Previous Hash'
 												for pHashVal in prevHash
-													td= pHashVal
-											tr(class='hash')
+													td(class='hash')= pHashVal
+											tr
 												th='Current Hash'
 												for hashVal in currHash
-													td= hashVal
+													td(class='hash')= hashVal
 
 								else
 									p No elements!

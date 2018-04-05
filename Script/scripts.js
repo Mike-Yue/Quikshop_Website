@@ -1,32 +1,74 @@
-function openTab(event, id) {
-    // Declare all variables
-    var i, tabcontent, tablinks;
+function updateTableNames() {
+  // Declare variables 
+  // Declare variables 
+  var input, filter, table, tr, td, i, k;
+  input = document.getElementById("searchNames");
+  filter = input.value.toLowerCase();
+  table = document.getElementById("blockchain_table");
+  tr = table.getElementsByTagName("tr");
 
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
+  for(i = 0; i < tr[2].getElementsByTagName('td').length; i++){
+    if(tr[2].getElementsByTagName("td")[i].innerHTML.toLowerCase().indexOf(filter) > -1){
+        tr[0].getElementsByTagName('th')[i+1].style.display = '';
+        for(k = 1; k < 7; k++){
+            tr[k].getElementsByTagName("td")[i].style.display = '';
+        }
     }
-
-    // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace("active", "");
+    else{
+        tr[0].getElementsByTagName('th')[i+1].style.display = 'none';
+        for(k = 1; k < 7; k++){
+            tr[k].getElementsByTagName("td")[i].style.display = 'none';
+        }
     }
-
-    // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(id).style.display = "block";
-    event.currentTarget.className += " active";
+  }
 }
 
-function openDefault(){
-    document.getElementById('defaultButton').click();
+function updateTableDates() {
+  // Declare variables 
+  // Declare variables 
+  var input, filter, table, tr, td, i, k;
+  input = document.getElementById("searchDates");
+  filter = input.value.toLowerCase();
+  table = document.getElementById("blockchain_table");
+  tr = table.getElementsByTagName("tr");
+
+  for(i = 0; i < tr[3].getElementsByTagName('td').length; i++){
+    if(tr[3].getElementsByTagName("td")[i].innerHTML.toLowerCase().indexOf(filter) > -1){
+        tr[0].getElementsByTagName('th')[i+1].style.display = '';
+        for(k = 1; k < 7; k++){
+            tr[k].getElementsByTagName("td")[i].style.display = '';
+        }
+    }
+    else{
+        tr[0].getElementsByTagName('th')[i+1].style.display = 'none';
+        for(k = 1; k < 7; k++){
+            tr[k].getElementsByTagName("td")[i].style.display = 'none';
+        }
+    }
+  }
 }
 
-function openBlock(){
-    document.getElementById('block').click();
-}
+function updateTableProducts() {
+  // Declare variables 
+  // Declare variables 
+  var input, filter, table, tr, td, i, k;
+  input = document.getElementById("searchProducts");
+  filter = input.value.toLowerCase();
+  table = document.getElementById("blockchain_table");
+  tr = table.getElementsByTagName("tr");
 
-function flip(){
-    screen.orientation.lock('landscape');
+  for(i = 0; i < tr[4].getElementsByTagName('td').length; i++){
+    if(tr[4].getElementsByTagName("td")[i].innerHTML.toLowerCase().indexOf(filter) > -1){
+        tr[0].getElementsByTagName('th')[i+1].style.display = '';
+        for(k = 1; k < 7; k++){
+            tr[k].getElementsByTagName("td")[i].style.display = '';
+        }
+    }
+    else{
+        tr[0].getElementsByTagName('th')[i+1].style.display = 'none';
+        for(k = 1; k < 7; k++){
+            tr[k].getElementsByTagName("td")[i].style.display = 'none';
+        }
+    }
+  }
 }
