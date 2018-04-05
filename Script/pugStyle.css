@@ -54,6 +54,9 @@ h2{
 	border-width: medium;
 
 }
+.col-xs-3{
+	padding-right: 0;
+}
 
 .col-xs-4{
 	padding-right: 0;
@@ -62,6 +65,10 @@ h2{
 
 .col-xs-6{
 	padding-right: 0;
+	padding-left: 0;
+}
+
+.col-xs-9{
 	padding-left: 0;
 }
 
@@ -94,26 +101,10 @@ h2{
 	color: #154fff;
 }
 
-#searchNames{
-	width: 92%;
-	margin-bottom: 10px;
-	margin-left: 15px;
-	font-size: 1.1vw;
-	height: auto;
-}
 
-#searchDates{
-	width: 92%;
+#search{
+	width: 50%;
 	margin-bottom: 10px;
-	margin-left: 15px;
-	font-size: 1.1vw;
-	height: auto;
-}
-
-#searchProducts{
-	width: 92%;
-	margin-bottom: 10px;
-	margin-left: 15px;
 	font-size: 1.1vw;
 	height: auto;
 }
@@ -135,6 +126,41 @@ table{
     font-size: 1.5vw;
     margin-left: 0px;
     margin-right: 0px;
+}
+
+.dropbtn {
+    color: black;
+    width: 100%;
+    font-size: 1.1vw;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    background-color: inherit;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    background-color: inherit;
+}
+
+.dropdown-content button {
+    color: black;
+    text-decoration: none;
+    display: block;
+    font-size: 1.1vw;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    width: 100%;
 }
 
 @media only screen and (orientation: portrait){

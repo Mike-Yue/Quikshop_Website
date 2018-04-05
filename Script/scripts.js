@@ -48,17 +48,31 @@ function updateTableDates() {
   }
 }
 
-function updateTableProducts() {
+function updateTable() {
   // Declare variables 
   // Declare variables 
-  var input, filter, table, tr, td, i, k;
-  input = document.getElementById("searchProducts");
+  var input, filterby, row, filter, table, tr, td, i, k;
+  filterby = document.getElementById('filterButton').innerHTML
+  if(filterby == 'Filtering by Names'){
+    row = 2;
+  }
+  else if(filterby == 'Filtering by Dates'){
+    row = 3;
+  }
+  else if(filterby == 'Filtering by Products'){
+    row = 4;
+  }
+  else if(filterby == 'Filtering by Hash'){
+    row = 6
+  }
+
+  input = document.getElementById("search");
   filter = input.value.toLowerCase();
   table = document.getElementById("blockchain_table");
   tr = table.getElementsByTagName("tr");
 
-  for(i = 0; i < tr[4].getElementsByTagName('td').length; i++){
-    if(tr[4].getElementsByTagName("td")[i].innerHTML.toLowerCase().indexOf(filter) > -1){
+  for(i = 0; i < tr[row].getElementsByTagName('td').length; i++){
+    if(tr[row].getElementsByTagName("td")[i].innerHTML.toLowerCase().indexOf(filter) > -1){
         tr[0].getElementsByTagName('th')[i+1].style.display = '';
         for(k = 1; k < 7; k++){
             tr[k].getElementsByTagName("td")[i].style.display = '';
@@ -71,4 +85,24 @@ function updateTableProducts() {
         }
     }
   }
+}
+
+function FilterNames(){
+  var btn = document.getElementById('filterButton');
+  btn.innerHTML = 'Filtering by Names';
+}
+
+function FilterDates(){
+  var btn = document.getElementById('filterButton');
+  btn.innerHTML = 'Filtering by Dates';
+}
+
+function FilterProducts(){
+  var btn = document.getElementById('filterButton');
+  btn.innerHTML = 'Filtering by Products';
+}
+
+function FilterHash(){
+  var btn = document.getElementById('filterButton');
+  btn.innerHTML = 'Filtering by Hash';
 }
